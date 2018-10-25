@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t smeler/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run smeler/docker-react npm run test -- --coverage
